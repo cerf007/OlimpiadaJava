@@ -1,6 +1,7 @@
 package ni.edu.uam.olimpiadas.olimpiadasreto.service;
 
 
+import com.olimpia.domain.Conexion;
 import com.olimpia.domain.EstadoRuta;
 import com.olimpia.domain.Mapa;
 import com.olimpia.domain.MapaException;

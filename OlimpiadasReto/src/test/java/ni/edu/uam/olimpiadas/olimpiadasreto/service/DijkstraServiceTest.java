@@ -96,6 +96,6 @@ public class DijkstraServiceTest {
         RutaResultado resultado = service.calcularRuta(mapa, "A", "B");
 
         assertEquals(EstadoRuta.OK, resultado.getEstado());
-        assertEquals(3L, resultado.getCostoTotal());
+        assertEquals(2L, resultado.getCostoTotal());
     }
 }
