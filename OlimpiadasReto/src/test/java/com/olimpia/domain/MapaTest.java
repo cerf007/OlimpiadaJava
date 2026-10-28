@@ -57,4 +57,14 @@ public class MapaTest {
         assertThrows(MapaException.class, () -> mapa.addConexion("A", "B", -1));
         assertTrue(mapa.getTodasLasConexiones().isEmpty());
     }
+
+    @Test
+    void debeRechazarSedeConIdRepetido() {
+        Mapa mapa = new Mapa();
+        mapa.addSede(new Sede("A", "A"));
+
+        MapaException ex = assertThrows(MapaException.class, () -> mapa.addSede(new Sede("A", "Otra")));
+        assertTrue(ex.getMessage().contains("ya existe"));
+        assertEquals(1, mapa.size());
+    }
 }

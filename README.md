@@ -105,15 +105,16 @@ La ruta óptima de `A` a `B` es `A -> C -> B`, con un costo total de **3**.
 | Sede inexistente                | Error controlado con `MapaException`        |
 | Sede sin camino al destino      | Resultado `SIN_RUTA`                        |
 | Origen igual al destino         | Ruta de una sola sede con costo 0           |
+| Sede con id repetido            | Rechazada con `MapaException`               |
 | Sede sin identificador          | Rechazada con `IllegalArgumentException`    |
 
 ## Pruebas
 
-El proyecto incluye 14 pruebas unitarias distribuidas en tres suites:
+El proyecto incluye 15 pruebas unitarias distribuidas en tres suites:
 
 | Suite                 | Pruebas | Cobertura                                     |
 |-----------------------|---------|-----------------------------------------------|
-| `MapaTest`            | 6       | Creación de sedes y validación de conexiones  |
+| `MapaTest`            | 7       | Creación de sedes y validación de conexiones  |
 | `DijkstraServiceTest` | 6       | Rutas mínimas, sin ruta y casos límite        |
 | `MapaRepositoryTest`  | 2       | Guardado, recarga e importación               |
 
@@ -148,7 +149,6 @@ Datos de ejemplo ficticios: [`OlimpiadasReto/datos/ejemplo.properties`](Olimpiad
 
 - No hay pruebas concurrentes ni sincronización: `Mapa` no es seguro entre hilos (el enunciado no exige concurrencia).
 - Las pruebas de la interfaz JavaFX no están automatizadas.
-- Una sede con el mismo id reemplaza a la anterior sin aviso.
 - Sin validación de desbordamiento de `long` en la suma de costos.
 
 ## Flujo de trabajo

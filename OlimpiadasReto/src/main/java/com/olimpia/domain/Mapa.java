@@ -14,6 +14,9 @@ public class Mapa {
         if (sede == null) {
             throw new IllegalArgumentException("La sede no puede ser nula.");
         }
+        if (sedes.containsKey(sede.getId())) {
+            throw new MapaException("La sede ya existe: " + sede.getId());
+        }
         sedes.put(sede.getId(), sede);
         conexiones.putIfAbsent(sede.getId(), new ArrayList<>());
     }
