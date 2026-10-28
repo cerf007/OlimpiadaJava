@@ -47,4 +47,14 @@ public class MapaTest {
         MapaException ex = assertThrows(MapaException.class, () -> mapa.addConexion("A", "Z", 3));
         assertTrue(ex.getMessage().contains("no existe"));
     }
+
+    @Test
+    void pesoNegativoNoDebeAnadirLaConexion() {
+        Mapa mapa = new Mapa();
+        mapa.addSede(new Sede("A", "A"));
+        mapa.addSede(new Sede("B", "B"));
+
+        assertThrows(MapaException.class, () -> mapa.addConexion("A", "B", -1));
+        assertTrue(mapa.getTodasLasConexiones().isEmpty());
+    }
 }

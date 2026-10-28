@@ -72,9 +72,7 @@
                     <execution>
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>
-                                ni.edu.uam.olimpiadas.olimpiadasreto.HelloApplication
-                            </mainClass>
+                            <mainClass>ni.edu.uam.olimpiadas.olimpiadasreto/com.olimpia.App</mainClass>
                         </configuration>
                     </execution>
                 </executions>
