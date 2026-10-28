@@ -22,3 +22,45 @@
     -fx-background-radius: 8;
     -fx-border-color: #d0d7e2;
 }
+
+.seccion {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: #dbe4f3;
+    -fx-border-radius: 10;
+}
+
+.titulo-seccion {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.button:disabled {
+    -fx-background-color: #b8c4d8;
+    -fx-opacity: 0.8;
+}
+
+.button.secundario {
+    -fx-background-color: #e2e8f4;
+    -fx-text-fill: #1f2a3d;
+}
+
+.resultado {
+    -fx-padding: 8;
+    -fx-background-radius: 8;
+    -fx-background-color: #f1f5fb;
+}
+
+.resultado.ok {
+    -fx-background-color: #dcfce7;
+    -fx-text-fill: #14532d;
+}
+
+.resultado.sin-ruta {
+    -fx-background-color: #fee2e2;
+    -fx-text-fill: #7f1d1d;
+}
+
+.estado {
+    -fx-text-fill: #475569;
+}

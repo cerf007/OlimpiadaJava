@@ -1,8 +1,8 @@
 package com.olimpia.persistence;
 
-import com.olimpia.domain.Conexion;
-import com.olimpia.domain.Mapa;
-import com.olimpia.domain.Sede;
+import com.olimpia.model.Conexion;
+import com.olimpia.model.Mapa;
+import com.olimpia.model.Sede;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,7 +10,7 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Properties;
 
-public class FileMapaRepository implements MapaRepository {
+public class FileMapaRepository {
 
     private final Path file;
 
@@ -18,7 +18,6 @@ public class FileMapaRepository implements MapaRepository {
         this.file = file;
     }
 
-    @Override
     public void guardar(Mapa mapa) throws IOException {
         if (mapa == null) {
             throw new IllegalArgumentException("El mapa no puede ser nulo.");
@@ -55,7 +54,6 @@ public class FileMapaRepository implements MapaRepository {
         }
     }
 
-    @Override
     public Mapa cargar() throws IOException {
         if (!Files.exists(file)) {
             return new Mapa();

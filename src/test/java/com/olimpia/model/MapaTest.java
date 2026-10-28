@@ -1,4 +1,4 @@
-package com.olimpia.domain;
+package com.olimpia.model;
 
 import org.junit.jupiter.api.Test;
 

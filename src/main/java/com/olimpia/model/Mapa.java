@@ -1,4 +1,4 @@
-package com.olimpia.domain;
+package com.olimpia.model;
 
 import java.util.ArrayList;
 import java.util.Collections;

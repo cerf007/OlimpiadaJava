@@ -1,7 +1,7 @@
 package com.olimpia.persistence;
 
-import com.olimpia.domain.Mapa;
-import com.olimpia.domain.Sede;
+import com.olimpia.model.Mapa;
+import com.olimpia.model.Sede;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

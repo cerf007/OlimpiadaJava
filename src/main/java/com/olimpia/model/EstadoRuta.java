@@ -1,4 +1,4 @@
-package com.olimpia.domain;
+package com.olimpia.model;
 
 public enum EstadoRuta {
     OK,

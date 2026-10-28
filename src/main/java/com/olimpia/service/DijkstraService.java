@@ -1,11 +1,11 @@
-package ni.edu.uam.olimpiadas.olimpiadasreto.service;
+package com.olimpia.service;
 
 
-import com.olimpia.domain.Conexion;
-import com.olimpia.domain.EstadoRuta;
-import com.olimpia.domain.Mapa;
-import com.olimpia.domain.MapaException;
-import com.olimpia.domain.RutaResultado;
+import com.olimpia.model.Conexion;
+import com.olimpia.model.EstadoRuta;
+import com.olimpia.model.Mapa;
+import com.olimpia.model.MapaException;
+import com.olimpia.model.RutaResultado;
 
 import java.util.ArrayList;
 import java.util.Comparator;

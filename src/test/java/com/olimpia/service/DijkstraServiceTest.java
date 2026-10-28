@@ -1,10 +1,10 @@
-package ni.edu.uam.olimpiadas.olimpiadasreto.service;
+package com.olimpia.service;
 
-import com.olimpia.domain.EstadoRuta;
-import com.olimpia.domain.Mapa;
-import com.olimpia.domain.MapaException;
-import com.olimpia.domain.RutaResultado;
-import com.olimpia.domain.Sede;
+import com.olimpia.model.EstadoRuta;
+import com.olimpia.model.Mapa;
+import com.olimpia.model.MapaException;
+import com.olimpia.model.RutaResultado;
+import com.olimpia.model.Sede;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

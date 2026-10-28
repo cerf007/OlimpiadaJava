@@ -1,6 +1,6 @@
 package com.olimpia.persistence;
 
-import com.olimpia.domain.Mapa;
+import com.olimpia.model.Mapa;
 
 import java.io.IOException;
 import java.nio.file.Files;

@@ -24,7 +24,7 @@ OlimpiadaJava modela una institución con varias sedes conectadas entre sí. Cad
 - Cálculo de ruta mínima con el algoritmo de Dijkstra.
 - Manejo controlado de errores: pesos negativos, sedes inexistentes y sedes aisladas.
 - Persistencia local del mapa en archivos `.properties`, con importación y exportación.
-- Interfaz gráfica en JavaFX.
+- Interfaz JavaFX con campos validados, listas desplegables de sedes, botones que se habilitan solo con datos válidos y tablas de sedes y conexiones.
 - Pruebas unitarias con JUnit 5.
 
 ## Tecnologías
@@ -41,24 +41,26 @@ OlimpiadaJava modela una institución con varias sedes conectadas entre sí. Cad
 ```text
 OlimpiadaJava/
 ├── pom.xml
+├── datos/ejemplo.properties
 └── src/
-    ├── main/java/
-    │   ├── com/olimpia/
-    │   │   ├── domain/        Sede, Conexion, Mapa, RutaResultado, EstadoRuta, MapaException
-    │   │   ├── App.java       Punto de entrada JavaFX
-    │   │   ├── persistence/   Guardado, carga, importación y exportación
-    │   │   └── ui/            Controlador y vista JavaFX
-    │   └── ni/edu/uam/olimpiadas/olimpiadasreto/
-    │       └── service/   DijkstraService (algoritmo de ruta mínima)
-    └── test/java/com/olimpia/
+    ├── main/java/com/olimpia/
+    │   ├── App.java            Punto de entrada JavaFX
+    │   ├── model/              Sede, Conexion, Mapa, RutaResultado, EstadoRuta, MapaException
+    │   ├── service/            DijkstraService
+    │   ├── persistence/        FileMapaRepository, MapaImporterExporter
+    │   ├── controller/         MapaController
+    │   └── ui/                 MapaView
+    ├── main/resources/styles/  app.css
+    └── test/java/com/olimpia/  model, service, persistence
 ```
 
 | Paquete       | Responsabilidad                                              |
 |---------------|--------------------------------------------------------------|
-| `domain`      | Entidades del problema y reglas de validación                |
+| `model`       | Entidades del problema y reglas de validación                |
 | `service`     | Dijkstra con `PriorityQueue` y distancias `long`             |
-| `persistence` | Almacenamiento local del mapa                                |
-| `ui`          | Interfaz de usuario                                          |
+| `persistence` | Almacenamiento local, importación y exportación              |
+| `controller`  | Coordina modelo, servicio y persistencia para la vista       |
+| `ui`          | Interfaz JavaFX                                              |
 
 ## Requisitos
 
@@ -129,7 +131,7 @@ La cola puede contener entradas obsoletas; se descartan al extraerlas comparando
 
 ## Persistencia, importación y exportación
 
-El estado se guarda en `data/mapa.properties` (formato `.properties`, sin dependencias externas). La aplicación recupera ese archivo al iniciar y lo guarda al cerrar; también hay botones para guardar y cargar manualmente. `MapaImporterExporter` permite importar y exportar el mapa desde cualquier ruta.
+El estado se guarda en `data/mapa.properties` (formato `.properties`, sin dependencias externas). La aplicación recupera ese archivo al iniciar y lo guarda al cerrar; también hay botones para guardar y cargar manualmente. La interfaz permite importar y exportar (`MapaImporterExporter`) el mapa desde cualquier ruta.
 
 Datos de ejemplo ficticios: [`datos/ejemplo.properties`](datos/ejemplo.properties) (incluye la sede aislada `E`, útil para probar `SIN_RUTA`). Para usarlo, cópialo a `data/mapa.properties` o impórtalo con `MapaImporterExporter.importar`.
 
@@ -139,7 +141,7 @@ Datos de ejemplo ficticios: [`datos/ejemplo.properties`](datos/ejemplo.propertie
 - La validación ocurre en dos niveles: `Conexion` y `Sede` validan sus propios datos, y `Mapa` valida la consistencia (sedes existentes, costo no negativo) antes de insertar, de modo que una conexión rechazada nunca se añade.
 - Los costos son `long` y el servicio no valida desbordamiento por sumas extremas.
 - `RutaResultado` es inmutable y expresa la ausencia de ruta con `EstadoRuta.SIN_RUTA` en lugar de excepciones.
-- Persistencia detrás de la interfaz `MapaRepository`, para poder cambiar el almacenamiento sin tocar dominio ni servicio.
+- Arquitectura en capas simple (model, service, persistence, controller, ui) bajo un único paquete raíz `com.olimpia`.
 
 ## Limitaciones conocidas
 
