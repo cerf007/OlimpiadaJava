@@ -37,3 +37,9 @@ build/
 
 ### Mac OS ###
 .DS_Store
+### IDEs ###
+.idea/
+*.iml
+.vscode/
+.DS_Store
+data/

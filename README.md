@@ -39,7 +39,7 @@ OlimpiadaJava modela una institución con varias sedes conectadas entre sí. Cad
 ## Estructura del proyecto
 
 ```text
-OlimpiadasReto/
+OlimpiadaJava/
 ├── pom.xml
 └── src/
     ├── main/java/
@@ -67,11 +67,7 @@ OlimpiadasReto/
 
 ## Ejecución
 
-Todos los comandos se ejecutan desde la carpeta `OlimpiadasReto`.
-
-```bash
-cd OlimpiadasReto
-```
+Todos los comandos se ejecutan desde la raíz del repositorio.
 
 Ejecutar las pruebas:
 
@@ -135,7 +131,7 @@ La cola puede contener entradas obsoletas; se descartan al extraerlas comparando
 
 El estado se guarda en `data/mapa.properties` (formato `.properties`, sin dependencias externas). La aplicación recupera ese archivo al iniciar y lo guarda al cerrar; también hay botones para guardar y cargar manualmente. `MapaImporterExporter` permite importar y exportar el mapa desde cualquier ruta.
 
-Datos de ejemplo ficticios: [`OlimpiadasReto/datos/ejemplo.properties`](OlimpiadasReto/datos/ejemplo.properties) (incluye la sede aislada `E`, útil para probar `SIN_RUTA`). Para usarlo, cópialo a `data/mapa.properties` o impórtalo con `MapaImporterExporter.importar`.
+Datos de ejemplo ficticios: [`datos/ejemplo.properties`](datos/ejemplo.properties) (incluye la sede aislada `E`, útil para probar `SIN_RUTA`). Para usarlo, cópialo a `data/mapa.properties` o impórtalo con `MapaImporterExporter.importar`.
 
 ## Decisiones de diseño
 
